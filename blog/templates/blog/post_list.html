@@ -1,0 +1,111 @@
+{% extends "info/base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>Welcome to the Blog</h1>
+<p>Explore recent posts and share your thoughts anonymously.</p>
+
+{% for post in posts %}
+  <div class="blog-post">
+    <article class="post-content">
+      <h2>{{ post.title }}</h2>
+      <p class="post-meta">Published on {{ post.published_at|date:"F j, Y" }}</p>
+      <div class="post-body">{{ post.body|linebreaksbr }}</div>
+    </article>
+
+    <!-- Likes -->
+    <div class="likes">
+      <form class="like-form" data-post-id="{{ post.id }}">
+        {% csrf_token %}
+        <button type="submit">{{ post.liked|yesno:"Unlike,Like" }}</button>
+        <span class="likes-count">{{ post.like_count }}</span> likes
+      </form>
+    </div>
+
+    <!-- Comments -->
+    <div class="comments">
+      <h4>Comments</h4>
+      <ul class="comments-list" id="comments-list-{{ post.id }}">
+        {% for c in post.comments.all %}
+          {% if c.approved %}
+            <li><strong>{{ c.name|default:"Anonymous" }}</strong>: {{ c.body|linebreaksbr }}</li>
+          {% endif %}
+        {% empty %}
+          <li>No comments yet.</li>
+        {% endfor %}
+      </ul>
+
+      <form class="comment-form" data-post-id="{{ post.id }}" method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your name (optional)">
+        <textarea name="body" placeholder="Write a comment..." required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </div>
+    <hr>
+  </div>
+{% empty %}
+  <p>No blog posts yet. Stay tuned!</p>
+{% endfor %}
+
+<script>
+function getCSRF() {
+  return document.querySelector('[name=csrfmiddlewaretoken]').value;
+}
+
+// Like buttons
+document.querySelectorAll('.like-form').forEach(form => {
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const postId = this.dataset.postId;
+    fetch(`/blog/${postId}/like/`, {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': getCSRF(),
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        this.querySelector('button').textContent = data.liked ? 'Unlike' : 'Like';
+        this.querySelector('.likes-count').textContent = data.likes_count;
+      }
+    });
+  });
+});
+
+// Comment forms
+document.querySelectorAll('.comment-form').forEach(form => {
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const postId = this.dataset.postId;
+    const formData = new FormData(this);
+    fetch(`/blog/${postId}/comment/`, {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': getCSRF(),
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: formData
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok) {
+        const name = this.querySelector('[name="name"]').value || 'Anonymous';
+        const body = this.querySelector('[name="body"]').value;
+        const commentList = document.getElementById(`comments-list-${postId}`);
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${name}</strong>: ${body}`;
+        commentList.appendChild(li);
+        this.reset();
+      } else {
+        alert('Error: ' + JSON.stringify(data.errors));
+      }
+    })
+    .catch(() => alert('Failed to submit comment'));
+  });
+});
+</script>
+
+{% endblock %}

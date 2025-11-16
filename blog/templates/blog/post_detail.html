@@ -1,0 +1,90 @@
+{% extends "info/base.html" %}
+{% block content %}
+
+<div class="blog-post">
+  <article class="post-content">
+    <h1>{{ post.title }}</h1>
+    <p class="post-meta">Published on {{ post.published_at|date:"F j, Y" }}</p>
+    <div class="post-body">{{ post.body|linebreaksbr }}</div>
+  </article>
+
+  <section class="post-social">
+    <div class="likes">
+      <button id="like-btn">{{ liked|yesno:"Unlike,Like" }}</button>
+      <span id="likes-count">{{ post.like_count }}</span> likes
+    </div>
+
+    <div class="comments">
+      <h3>Comments</h3>
+      <ul id="comments-list">
+        {% for c in post.comments.all %}
+          {% if c.approved %}
+            <li class="comment">
+              <div class="comment-avatar">👤</div>
+              <div class="comment-body">
+                <strong>{{ c.name|default:"Anonymous" }}</strong>
+                <p>{{ c.body|linebreaksbr }}</p>
+              </div>
+            </li>
+          {% endif %}
+        {% empty %}
+          <li>No comments yet.</li>
+        {% endfor %}
+      </ul>
+
+      <form id="comment-form" method="post" action="{% url 'blog:add_comment' post.id %}">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">Post Comment</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<script>
+function getCSRF() {
+  return document.querySelector('[name=csrfmiddlewaretoken]').value;
+}
+
+document.getElementById('like-btn').addEventListener('click', function(){
+  fetch("{% url 'blog:toggle_like' post.id %}", {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': getCSRF(),
+      'X-Requested-With': 'XMLHttpRequest'
+    }
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.ok) {
+      document.getElementById('likes-count').textContent = data.likes_count;
+      document.getElementById('like-btn').textContent = data.liked ? 'Unlike' : 'Like';
+    }
+  });
+});
+
+document.getElementById('comment-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const formData = new FormData(this);
+  fetch(this.action, {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': getCSRF(),
+      'X-Requested-With': 'XMLHttpRequest'
+    },
+    body: formData
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.ok) {
+      alert(data.message || 'Comment submitted');
+      this.reset();
+    } else {
+      alert('Error: ' + JSON.stringify(data.errors));
+    }
+  })
+  .catch(() => alert('Failed to submit comment'));
+});
+</script>
+
+{% endblock %}
