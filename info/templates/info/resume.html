@@ -1,0 +1,693 @@
+{% extends "info/base.html" %}
+{% load static %}
+
+{% block content %}
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+        <div class="container">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    </li>
+                </ul>
+                <ul class="navbar-nav brand">
+                    <li class="brand-txt">
+                        <h5 class="brand-title">Mohammad Anton</h5>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item last-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div id="about" class="row about-section">
+            <div class="col-lg-8 about-card">
+                <h3 class="font-weight-light">Who am <img src="{% static 'assets/imgs/info.gif' %}" alt="" class="brand-img"></h3>
+                <span class="line mb-5"></span>
+                <h5 class="mb-3">Network Engineer</h5>
+                <p class="mt-20"> - Experienced and results-driven Network Engineer with a proven track record in designing, deploying, and maintaining robust network solutions tailored to meet the evolving needs of modern organizations. Adept at architecting complex network infrastructures with a strong focus on security, scalability, and performance. Specializes in managing enterprise-grade equipment from leading vendors, implementing best practices for network optimization, and ensuring high availability across critical systems.
+
+                Currently responsible for overseeing all aspects of network operations at Enterprise Solutions Providers, where I lead initiatives to streamline connectivity, enhance cybersecurity posture, and support digital transformation goals. Proficient in VMware ESXi virtualization, providing reliable virtual environments that support business continuity and operational efficiency. Known for delivering hands-on, on-site support and collaborating closely with cross-functional teams to resolve technical challenges quickly and effectively.
+
+                Driven by a passion for continuous learning and innovation in the field of network engineering, I actively stay up to date with emerging technologies and industry trends to deliver top-tier service and forward-thinking solutions.</p>
+                <!-- <button class="btn btn-outline-danger"><i class="icon-down-circled2 "></i>Download My CV</button> -->
+            </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Expertise</h3>
+                <span class="line mb-5"></span>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-widget icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Build Network</h6>
+                        <p class="subtitle"> Network Design | Equipment Procurement Physical | Implementation | Configuration and Testing |  Documentation | Maintenance and Optimization</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-paint-bucket icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>CyberSecurity</h6>
+                        <p class="subtitle">Risk Assessment | Security Policy Development | Security Monitoring | Vulnerability Management | Security Architecture Design | Incident Investigation</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-stats-up icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Software Developer</h6>
+                        <p class="subtitle">Web Development | Mobile App Development | DevOps | Data Science and Machine Learning | Security Engineering</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Resume Section-->
+    <section class="section" id="resume">
+        <div class="container">
+            <h2 class="mb-5"><span class="text-danger">Anton's</span> Resume <img src="{% static 'assets/imgs/download.png' %}" alt="" class="pdf-icon" style="height:1em; vertical-align:middle;"></h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Experiences</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2023 - Present</h6>
+                            <P>Network Engineer</P>
+                            <P class="subtitle">As a Network Engineer at Enterprise Solutions Providers, I am responsible for configuring and maintaining a variety of network equipment, including Cisco Meraki devices, firewalls, switches, PMS/POS services, and more. I have experience installing and managing VMware ESXI and other services, ensuring that our clients have the infrastructure they need to keep their businesses running smoothly.<hr>
+                            <h6 class="title text-danger">2022 - 2023</h6>
+                            <P>Software Developer</P>
+                            <P class="subtitle">Developed web-based software specifically tailored for the Department of Chemistry at the University of New Haven.</P>
+                            <hr>
+                            <h6 class="title text-danger">2018 - 2020</h6>
+                            <P>Information Technology Executive</P>
+                            <P class="subtitle">As a full-time IT officer, I provide services, manage technical issues, and handle design validation. Promoted to Executive, I oversee the entire IT sector. Additionally, I collaborated on a "3D virtual site viewer" project, gaining experience in image processing and software development. I'm also an active member of the "E-club" in Bangladesh, contributing to product launches and networking with entrepreneurs.</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Education</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2021 - 2022</h6>
+                            <P>M.S in Cybersecurity & Networks</P>
+                            <P class="subtitle"><a href="https://www.newhaven.edu/index.php">The University of New Haven</a> prioritizes cybersecurity across its networks, employing advanced measures to safeguard sensitive data and ensure the integrity of its systems. Through comprehensive protocols and continuous updates, UNH remains at the forefront of protecting its digital infrastructure, fostering a secure environment for learning and research.</P>
+                            <hr>
+                            <h6 class="title text-danger">2014 - 2018</h6>
+                            <P>B.S in Computer Science & Engineering</P>
+                            <P class="subtitle"><a href="https://daffodilvarsity.edu.bd/">Daffodil International University</a>'s Computer Science and Engineering department offers a dynamic curriculum focusing on cutting-edge technologies like AI, data science, and cybersecurity. With hands-on projects and industry collaborations, students gain the skills to tackle real-world challenges and drive technological innovation. Led by experienced faculty and equipped with state-of-the-art facilities, DIU's CSE department empowers students to excel in the rapidly evolving field of technology.</P>
+                            <hr>
+                            <h6 class="title text-danger">2012 - 2013</h6>
+                            <P>Science</P>
+                            <P class="subtitle"><a href="https://mgc.ac.bd/">Madaripur Government College</a> is a government graduate college at Madaripur District in Bangladesh. The college was established in 1948</P>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Certifications</h4>
+                                <span class="line"></span>
+                            </div>
+                       </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">Python</h6>
+                            <P>November 11, 2021, University of Michigan</P>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">Red Hat System Administration I (RH124)</h6>
+                            <P>February 26, 2022, RedHat Academy</P>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">Red Hat System Administration II (RH134)</h6>
+                            <P>November 11, 2021, RedHat Academy</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="pull-left">
+                                <h4 class="mt-2">Skills</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body pb-2">
+                           <h6>Server Configuration </h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 97%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Python</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>HTML & CSS</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Database</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Visio</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h6>Ethical Hacking Tools</h6>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-dark text-center">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="row ">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-alarm-clock icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">500</h1>
+                            <p class="text-light mb-1">Hours Worked</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-layers-alt icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">50K</h1>
+                            <p class="text-light mb-1">Project Finished</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-face-smile icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">200K</h1>
+                            <p class="text-light mb-1">Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="row">
+                        <div class="col-5 text-right text-light border-right py-3">
+                            <div class="m-auto"><i class="ti-heart-broken icon-xl"></i></div>
+                        </div>
+                        <div class="col-7 text-left py-3">
+                            <h1 class="text-danger font-weight-bold font40">2k</h1>
+                            <p class="text-light mb-1">Coffee Drinked</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="service">
+        <div class="container">
+            <h2 class="mb-5 pb-4"><span class="text-danger">Services</span></h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-vector text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Network Design</h5>
+                            <P class="subtitle"> Planning and designing computer networks, including LANs (Local Area Networks), WANs (Wide Area Networks), WLANs (Wireless Local Area Networks), and VPNs (Virtual Private Networks). Whether you're establishing a new network infrastructure, upgrading an existing system, or optimizing performance, our comprehensive network design service is designed to ensure seamless connectivity, scalability, and security.</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-write text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Network Implementation</h5>
+                            <P class="subtitle"> Setting up and configuring network hardware and software, such as routers, switches, firewalls, and network protocols.</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-package text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Network Security & Troubleshooting</h5>
+                            <P class="subtitle">Implementing security measures to protect networks from unauthorized access, data breaches, malware, and other cyber threats. This may involve configuring firewalls, intrusion detection/prevention systems, VPNs, and conducting security audits. Identifying and resolving network issues such as connectivity problems, performance bottlenecks, and configuration errors.</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-map-alt text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Video making and Banner/Cover Design</h5>
+                            <P class="subtitle"> We specialize in providing high-quality video services and captivating banner/cover designs to elevate your brand and make a lasting impression. Whether you're looking to create engaging video content that tells your story or need eye-catching banners and covers to enhance your online presence, we've got you covered. Our team of skilled professionals is dedicated to bringing your vision to life with creativity, precision, and a commitment to excellence. Let's collaborate to bring your ideas to reality and leave a lasting impact on your audience. Explore our services and let's create something extraordinary together!"</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-bar-chart text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Resume, Cover & Copy Writer</h5>
+                            <P class="subtitle">Unlock your potential with our comprehensive writing services tailored to elevate your professional image and amplify your message. Whether you're seeking to land your dream job, make a career transition, or enhance your brand's visibility, our team of skilled writers is dedicated to crafting compelling narratives that resonate with your audience.<br>With our attention to detail, expertise in storytelling, and commitment to delivering exceptional results, we're here to help you achieve your goals and make a lasting impact. Let us be your partner in success. Contact us today to learn more about our professional writing services and take the next step towards realizing your aspirations."</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-5">
+                       <div class="card-header has-icon">
+                            <i class="ti-support text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-body px-4 py-3">
+                            <h5 class="mb-3 card-title text-dark">Web Development Services</h5>
+                            <P class="subtitle"><b>Website Design | <br>Front-End Development | <br>Back-End Development |
+                                <br>Content Management Systems (CMS) | <br>Website Maintenance and Support</b></P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="section bg-custom-gray" id="price">
+        <div class="container">
+            <h1 class="mb-5"><span class="text-danger">Packs</span> Pricing</h1>
+            <div class="row align-items-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Free</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">0</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">5 <span class="text-muted">Project</span></li>
+                            <li class="list-item">1GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item"><span class="text-muted">No Domain</span></li>
+                            <li class="list-item">1 <span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Basic</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">10</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">50 <span class="text-muted">Project</span></li>
+                            <li class="list-item">10GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">1<span class="text-muted">Domain</span></li>
+                            <li class="list-item">5 <span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center price-card-requried mb-4">
+                        <h3 class="price-card-title">Exclusive</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">25</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">150 <span class="text-muted">Project</span></li>
+                            <li class="list-item">15GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">5<span class="text-muted"> Domain</span></li>
+                            <li class="list-item">15<span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="price-card text-center mb-4">
+                        <h3 class="price-card-title">Pro</h3>
+                        <div class="price-card-cost">
+                            <sup class="ti-money"></sup>
+                            <span class="num">99</span>
+                            <span class="date">MO</span>
+                        </div>
+                        <ul class="list">
+                            <li class="list-item">500 <span class="text-muted">Project</span></li>
+                            <li class="list-item">1000GB <span class="text-muted">Storage</span></li>
+                            <li class="list-item">10<span class="text-muted"> Domain</span></li>
+                            <li class="list-item">Unlimite<span class="text-muted">User</span></li>
+                        </ul>
+                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- Portfolio Section -->
+    <section class="section bg-custom-gray" id="portfolio">
+        <div class="container">
+            <h1 class="mb-5"> Portfolio</h1>
+            <div class="portfolio">
+                <div class="filters">
+                    <a href="#" data-filter=".new" class="active">
+                        Network Design
+                    </a>
+                    <a href="#" data-filter=".web">
+                        Certification
+                    </a>
+                    <a href="#" data-filter=".advertising">
+                        Design
+                    </a>
+                    <a href="#" data-filter=".branding">
+                        Web
+                    </a>
+                </div>
+                <div class="portfolio-container">
+                    <div class="col-md-6 col-lg-4 web new">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/web-1.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/web-1.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">WEB</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 web new">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/web-2.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/web-2.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">WEB</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 advertising new">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/advertising-2.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/advertising-2.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">ADVERSTISING</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 web">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/advertising-2.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/web-4.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">WEB</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 advertising">
+                        <div class="portfolio-item">
+                            <<img src="{% static 'assets/imgs/advertising-1.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/advertising-1.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">ADVERSITING</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 web new">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/web-3.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/web-3.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">WEB</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 advertising new">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/advertising-3.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/advertising-3.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">ADVERSITING</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 advertising new">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/advertising-4.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/advertising-4.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">ADVERTISING</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 col-lg-4 branding new">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/advertising-2.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/branding-1.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">BRANDING</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 branding">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/advertising-2.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/branding-2.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">BRANDING</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 branding new">
+                        <div class="portfolio-item">
+                            <img src="{% static 'assets/imgs/advertising-2.jpg' %}" alt="" class="img-fluid">
+                            <div class="content-holder">
+                                <a class="img-popup" href="assets/imgs/branding-3.jpg"></a>
+                                <div class="text-holder">
+                                    <h6 class="title">BRANDING</h6>
+                                    <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of portfolio section -->
+    <section class="section bg-dark py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Experiences</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2023 - Present</h6>
+                            <P>Network Engineer</P>
+                            <P class="subtitle">As a Network Engineer at Enterprise Solutions Providers, I am responsible for configuring and maintaining a variety of network equipment, including Cisco Meraki devices, firewalls, switches, PMS/POS services, and more. I have experience installing and managing VMware ESXI and other services, ensuring that our clients have the infrastructure they need to keep their businesses running smoothly.<hr>
+                            <h6 class="title text-danger">2022 - 2023</h6>
+                            <P>Software Developer</P>
+                            <P class="subtitle">Developed web-based software specifically tailored for the Department of Chemistry at the University of New Haven.</P>
+                            <hr>
+                            <h6 class="title text-danger">2018 - 2020</h6>
+                            <P>Information Technology Executive</P>
+                            <P class="subtitle">As a full-time IT officer, I provide services, manage technical issues, and handle design validation. Promoted to Executive, I oversee the entire IT sector. Additionally, I collaborated on a "3D virtual site viewer" project, gaining experience in image processing and software development. I'm also an active member of the "E-club" in Bangladesh, contributing to product launches and networking with entrepreneurs.</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Education</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2021 - 2022</h6>
+                            <P>M.S in Cybersecurity & Networks</P>
+                            <P class="subtitle"><a href="https://www.newhaven.edu/index.php">The University of New Haven</a> prioritizes cybersecurity across its networks, employing advanced measures to safeguard sensitive data and ensure the integrity of its systems. Through comprehensive protocols and continuous updates, UNH remains at the forefront of protecting its digital infrastructure, fostering a secure environment for learning and research.</P>
+                            <hr>
+                            <h6 class="title text-danger">2014 - 2018</h6>
+                            <P>B.S in Computer Science & Engineering</P>
+                            <P class="subtitle"><a href="https://daffodilvarsity.edu.bd/">Daffodil International University</a>'s Computer Science and Engineering department offers a dynamic curriculum focusing on cutting-edge technologies like AI, data science, and cybersecurity. With hands-on projects and industry collaborations, students gain the skills to tackle real-world challenges and drive technological innovation. Led by experienced faculty and equipped with state-of-the-art facilities, DIU's CSE department empowers students to excel in the rapidly evolving field of technology.</P>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                       <div class="card-header">
+                            <div class="mt-2">
+                                <h4>Education</h4>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="title text-danger">2021 - 2022</h6>
+                            <P>M.S in Cybersecurity & Networks</P>
+                            <P class="subtitle"><a href="https://www.newhaven.edu/index.php">The University of New Haven</a> prioritizes cybersecurity across its networks, employing advanced measures to safeguard sensitive data and ensure the integrity of its systems. Through comprehensive protocols and continuous updates, UNH remains at the forefront of protecting its digital infrastructure, fostering a secure environment for learning and research.</P>
+                            <hr>
+                            <h6 class="title text-danger">2014 - 2018</h6>
+                            <P>B.S in Computer Science & Engineering</P>
+                            <P class="subtitle"><a href="https://daffodilvarsity.edu.bd/">Daffodil International University</a>'s Computer Science and Engineering department offers a dynamic curriculum focusing on cutting-edge technologies like AI, data science, and cybersecurity. With hands-on projects and industry collaborations, students gain the skills to tackle real-world challenges and drive technological innovation. Led by experienced faculty and equipped with state-of-the-art facilities, DIU's CSE department empowers students to excel in the rapidly evolving field of technology.</P>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section contact" id="contact">
+        <!--div id="map" class="map"></div>-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-card">
+                        <h4 class="contact-title">Send a message</h4>
+                        <form action="{% url 'send_email' %}" method="post">
+                             {% csrf_token %}
+                            <div class="form-group">
+                            <input name="name" class="form-control" type="text" placeholder="name *" required>
+                            </div>
+                            <div class="form-group">
+                                <input name="email" class="form-control" type="email" placeholder="Email *" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" class="form-control" id="" placeholder="Message" rows="7" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info-card">
+                        <h4 class="contact-title">Get in touch</h4>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-mobile icon-md"></i>
+                            </div>
+                            <div class="col-10 ">
+                                <h6 class="d-inline">Phone : <br> <span class="text-muted">+ (123) 456-789</span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-map-alt icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Address :<br> <span class="text-muted">Connecticut, USA</span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-envelope icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Email :<br> <span class="text-muted">antonislam007@gmail.com</span></h6>
+                            </div>
+                        </div>
+                        <ul class="social-icons pt-4">
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer py-3">
+        <div class="container">
+            <p class="small mb-0 text-light">
+                &copy; <script>document.write(new Date().getFullYear())</script> Created With <i class="ti-heart text-danger"></i> By <a href="#" target="_blank"><span class="text-danger" title="Bootstrap 4 Themes and Dashboards">Anton</span></a>
+            </p>
+        </div>
+    </footer>
+	<!-- core  -->
+</body>
+{% endblock %}

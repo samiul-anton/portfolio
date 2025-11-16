@@ -1,0 +1,236 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Anton' Portfolio</title>
+        <meta charset="utf-8">
+            <header class="header">
+            <div class="container">
+                <ul class="social-icons pt-3">
+                    <li class="social-item"><a class="social-link text-light" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link text-light" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link text-light" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link text-light" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link text-light" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="header-content">
+                    <h4 class="header-subtitle" >Hello, I am</h4>
+                    <h2 class="header-title">Mohammad Anton</h2>
+                    <h6 class="header-mono" >Network Engineer | Software Developer | Cyber Security Enthusiastic</h6>
+                    <button class="btn btn-primary btn-rounded"><i class="ti-printer pr-2"></i>Print Resume</button>
+                </div>
+            </div>
+        </header>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+            <div class="container">
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#portfolio" class="nav-link">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/blog/" class="nav-link">Blog</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav brand">
+                        <img src="{% static 'assets/imgs/anton.jpg' %}" alt="" class="brand-img"></br>
+                        <li class="brand-txt">
+                            <h5 class="brand-title">Mohammad Anton</h5>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'resume' %}" class="nav-link">Resume</a>
+                        </li>
+                        <li class="nav-item last-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+        <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+        <!-- bootstrap 3 affix -->
+        <script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+        <!-- Isotope  -->
+        <script src="{% static 'assets/vendors/isotope/isotope.pkgd.js' %}"></script>
+        <!-- Google mpas -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+        <!-- JohnDoe js -->
+        <script src="{% static 'assets/js/johndoe.js' %}"></script>
+        <script src="{% static 'assets/js/enterprise-topology.js' %}"></script>
+        <!--CUSTOM DESIGN-->
+
+
+        <link rel="icon" href="{% static 'assets/imgs/favicon.png' %}" type="image/png">
+        <!-- font icons -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+        <!-- Bootstrap + JohnDoe main styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/johndoe.css' %}">
+
+        <!-- three.js r128 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+        <!-- Cybersecurity News & USA News -->
+        <script>
+            // Live news cache and refresh settings
+            const newsRefreshIntervalMinutes = 5; // automatic refresh interval
+            let newsCache = { cyber: [], usa: [] };
+
+            // LIVE NEWS via Django API
+            async function fetchNews(type){
+              const spinner = document.getElementById('newsSpinner');
+              spinner.style.display = 'inline-block';
+              try{
+                let response = await fetch(`/api/security-news/${type}/`);  // Django backend endpoint
+                if(!response.ok) throw new Error('network');
+                let data = await response.json();
+                const headlines = data.headlines || [];
+                newsCache[type] = headlines;
+                return headlines;
+              } catch(e){
+                return newsCache[type].length ? newsCache[type] : newsFallback[type];
+              } finally{
+                spinner.style.display = 'none';
+              }
+            }
+
+            // Fallback headlines when API fails
+            const newsFallback = {
+              cyber: [
+                "Critical CVE alert affecting Cisco IOS XE.",
+                "New ransomware campaign targeting healthcare.",
+                "Zero‑day exploited in the wild – update required.",
+              ],
+              usa: [
+                "US-CERT publishes new advisory for federal systems.",
+                "Emergency patch required for DHS-connected networks.",
+                "Increased phishing targeting US financial sector.",
+              ]
+            };
+
+            // flip and populate
+            async function flipSecOps(type){
+              const inner = document.getElementById('secops-inner');
+              const back = document.getElementById('secops-back');
+
+              // flip
+              inner.style.transform = 'rotateY(180deg)';
+              back.style.opacity = 0;
+              setTimeout(()=> back.style.opacity = 1, 300);
+
+              document.getElementById('news-title').textContent = type === 'cyber' ? 'Cybersecurity Alerts' : 'USA Alerts';
+
+              const list = document.getElementById('news-list');
+              list.innerHTML = '';
+
+              const headlines = await fetchNews(type);
+              headlines.forEach((n,i) => {
+                const li = document.createElement('li');
+                li.textContent = n;
+                li.className = 'news-item';
+                li.onclick = flipSecOpsBack; // clicking a headline flips back
+                li.style.animationDelay = (i*80)+'ms';
+                list.appendChild(li);
+              });
+            }
+
+            function flipSecOpsBack(){
+              const back = document.getElementById('secops-back');
+              back.style.opacity = 0;
+              document.getElementById('secops-inner').style.transform = 'rotateY(0deg)';
+            }
+
+            // automatic refresh (background) — refresh both feeds every X minutes
+            async function refreshAllNews(){
+              await Promise.all([fetchNews('cyber'), fetchNews('usa')]);
+            }
+            setInterval(refreshAllNews, newsRefreshIntervalMinutes * 60 * 1000);
+            // initial warm cache
+            refreshAllNews();
+        </script>
+        <style>
+    .service-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .service-box {
+      position: relative;
+      width: 320px;
+      height: 380px;
+      border: 2px solid #000;
+      border-radius: 6px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .circle {
+      position: absolute;
+      top: -60px;
+      width: 120px;
+      height: 120px;
+      background: #000;
+      border-radius: 50%;
+    }
+
+    .content-box {
+      margin-top: 90px;
+      width: 85%;
+      height: 65%;
+      background: #222;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .service-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+  :root{ --bg:#ffffff; --text:#0b0f19; --subtext:#555; --primary:#008cff; --card-border:#e5e5e5; }
+  body{font-family: 'Segoe UI',sans-serif;margin:0;background:var(--bg);color:var(--text);} .container{max-width:1200px;margin:0 auto;padding:40px 20px}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:40px 0} h1{font-size:48px;line-height:1.08;margin:0 0 12px;font-weight:800}
+  p.lead{color:var(--subtext);font-size:18px;margin:0} .btn-primary{background:var(--primary);color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none;display:inline-block;margin-top:18px}
+  .btn-outline{border:2px solid var(--primary);color:var(--primary);padding:10px 20px;border-radius:10px;text-decoration:none;display:inline-block;margin-left:12px}
+  /* Canvas holder */ #threeTopology{width:100%;height:520px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.06);background:transparent}
+  /* Sections */ .section-title{font-size:28px;margin:40px 0 18px;font-weight:800} .card-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px} .card{border:1px solid var(--card-border);padding:20px;border-radius:12px;background:#fff}
+  .center{display:flex;align-items:center;justify-content:center} .tt{position:absolute;pointer-events:none;padding:8px 12px;background:#0b0f19;color:#fff;border-radius:6px;font-size:13px;transform:translate(-50%,-140%);white-space:nowrap}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;}.container{padding:20px}}
+    </style>
+
+    </head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+        <div class="container">
+            {% block content %} {% endblock content %}
+        </div>
+
+        <footer class="footer py-3">
+            <div class="container">
+                <p class="small mb-0 text-light">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Created With <i class="ti-heart text-danger"></i> By <a href="#" target="_blank"><span class="text-danger" title="Bootstrap 4 Themes and Dashboards">Anton</span></a>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
